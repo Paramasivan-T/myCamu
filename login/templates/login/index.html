@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LogIn</title>
+</head>
+<style>
+    body{
+        display: list-item;
+        justify-content: center;
+        align-items: center;
+        left: 10in ;
+        font-family: 'osiris';
+    }
+</style>  
+<body>
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+        <strong>Message: </strong>{{  message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="close"></button>
+        <span aria-hidden="true">&times;</span>
+    </div>
+    {% endfor %}
+    <h1>myCamu</h1>
+    {% if user.is_authenticated %}
+    <h3>Hello {{ fname }}</h3>
+    <h4>You are successfully logged in!</h4>
+    <button type="submit"><a href="signout/">Sign Out</a></button>
+    {% else %}
+    <button type="submit"> <a href="signup/">Signup</a></button>
+    <button type="submit"><a href="signin/">Sign In</a></button>
+    {% endif %}   
+</body>
+</html>
