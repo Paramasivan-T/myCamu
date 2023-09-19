@@ -4,32 +4,122 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SignUp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .form-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 400px;
+        }
+        
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+        
+        .submit-button {
+            display: block;
+            width: 100%;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h1>To create your Account Fill the Details</h1>
+    <div class="form-container">
+        <h2>To create your Account Fill the Details</h2>
     <form action="/signup/" method="post">
 
         {% csrf_token %}
-
-        <label for="">Username:</label>
+        <div class="form-group">
+        <label for="username">Username:</label>
         <input type="text" id="username" name="username" placeholder="Create Your username (Only letters and numbers)" required>
-        <br>
-        <label for="">First Name:</label>
+        </div>
+        <div class="form-group">
+        <label for="fname">First Name:</label>
         <input type="text" id="fname" name="fname" placeholder="Enter your First name" required>
-        <br>
-        <label for="">Last name:</label>
+        </div>
+        <div class="form-group">
+        <label for="lname">Last name:</label>
         <input type="text" id="lname" name="lname" placeholder="Enter your Last Name" required>
-        <br>
-        <label for="">Email id:</label>
+        </div>
+        <div class="form-group">
+        <label for="email">Email id:</label>
         <input type="email" id="email" name="email" placeholder="example@email.com" required>
-        <br>
-        <label for="">Password: </label>
+        </div>
+        <div class="form-group">
+            <label for="role">Role</label>
+            <select id="role" name="role">
+                <option value="student">Student</option>
+                <option value="teacher">Teacher</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="birthdate">Date of Birth</label>
+            <input type="date" id="birthdate" name="birthdate" required>
+        </div>
+        <div class="form-group">
+        <label for="pass1">Password: </label>
         <input type="password" id="pass1" name="pass1" placeholder="Create a pass word" required>
-        <br>
-        <label for="">Confirm your password:</label>
+        </div>
+        <div class="form-group">
+        <label for="pass2">Confirm your password:</label>
         <input type="password" id="pass2" name="pass2" placeholder="Confirm your password" required>
-        <br>
-        <button type="submit">Signup</button>
+        </div>
+        <button type="submit" class="submit-button">Signup</button>
     </form>
 </body> 
 </html>

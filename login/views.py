@@ -57,4 +57,4 @@ def signin(request):
 def signout(request):
       logout(request)
       messages.success(request,'Logged out successfully')
-      return redirect("home")
+      return redirect('http://127.0.0.1:8000/')
